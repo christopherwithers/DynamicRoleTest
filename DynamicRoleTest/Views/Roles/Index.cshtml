@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DynamicRoleTest.Common.ApplicationAccess>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (Model != null)
+{
+    foreach (var application in Model)
+    {
+        <div>
+            <p>@application.Name</p>
+
+            @foreach (var page in application.Pages)
+            {
+                <p style="padding-left: 20px;">- @page.Name</p>
+            }
+
+        </div>
+    }
+}
+else
+{
+    <div>No DynamicAuth types found.</div>
+}
